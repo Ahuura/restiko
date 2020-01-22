@@ -1,10 +1,27 @@
-//changement du format de la date
-$(document).ready(function() {
-    var date = "2020-01-17";
-    date = date.split('-');
-    date = date.reverse();
-    date = date.join('-');
-});
+
+// //changement du format de la date
+// $(document).ready(function() {
+//     $("#connexion").show();
+//     $("#restiko").hide();
+// });
+
+// //connexion avec airtable
+// var Airtable = require('airtable');
+// var base = new Airtable({ apiKey: 'keyL4KoNTaCErNwZv' }).base('app4hyWEjuyw1s7PI');
+
+// function connexion(){
+//     base('connexion').find('recaeJLrFqLRavIsu', function(err, record) {
+//         $("#submit").on("click", function () {
+            
+//             $("#connect_btn").val("");
+//             if (record.get("Nom") == $("#user").val() &&  (record.get("Password") == $("#mdp").val())){
+//                 $("#connexion").hide();
+//                 $("#restiko").show();
+//             } else {  (err);{ console.error(err); return; }
+//         }})
+//     })  ;
+// }
+       
 
 //airtableTemplate pour récupérer les données dans airtable
 var Airtable = require('airtable');
