@@ -23,6 +23,7 @@ function confirmer() {
         }
         records.forEach(function(record) {
             console.log(record.getId());
+            window.location = "index.html"
         });
     });
 }

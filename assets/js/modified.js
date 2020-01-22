@@ -1,16 +1,17 @@
 $(document).ready(function() {
-    setTimeout(function() {
         var monStockage = localStorage.getItem("id")
         modifRestiko(monStockage)
         submit(monStockage)
-    }, 1000);
-
+ 
 })
 
-//fonction pour récupérer les données grâce à restikoId
+// //fonction pour récupérer les données grâce à restikoId
 function modifRestiko(restikoId) {
+    var restikoId = localStorage.getItem("id");
+
     base('RESTIKO').find(restikoId, function(err, record) {
 
+     
         $("#dateModif").val(record.get("Date"));
         $("#faitModif").val(record.get("Ce que j'ai fait"));
         $("#apprisModif").val(record.get("Ce que j'ai appris"));
@@ -30,10 +31,13 @@ function modifRestiko(restikoId) {
 
 
 //fonction pour enregistrer les modifications
-function submit(restikoId) {
-    base('RESTIKO').create([{
-        "fields": {
-            "Date": $('#dateModif').val(),
+function submit(){
+    var restikoId = localStorage.getItem("id");
+base('RESTIKO').update([
+        {
+      "id": restikoId,
+      "fields": {
+        "Date": $('#dateModif').val(),
             "Ce que j'ai aimé": $('#aimeModif').val(),
             "Ce que j'ai fait": $('#faitModif').val(),
             "Ce que j'ai appris": $('#apprisModif').val(),
@@ -45,15 +49,14 @@ function submit(restikoId) {
             "ojectifs atteints ou pas": $('#atteintModif').val(),
             "note/5": $('#noteModif').val(),
             "Ce que je dois faire": $('#aFaireModif').val()
-
-        }
-    }], function(err, records) {
-        if (err) {
-
-            return;
-        }
-        records.forEach(function(record) {
-
-        });
-    });
+      }
+    }
+  ], function(err, records) {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    records.forEach(function(record) {
+    })
+  });
 }

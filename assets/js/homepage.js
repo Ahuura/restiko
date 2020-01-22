@@ -28,19 +28,19 @@ function initAirtable() {
                 '</div>' +
                 '<div class=" col-1">' +
                 '<div class="btn">' +
-                '<button  type="button" onclick="setStorage(\'###restikoId###\')" class="btn btn-outline-light"> Détailler </button>' +
+                '<button  type="button" onclick="detail(\'###restikoId###\')" class="btn btn-outline-light"> Détails </button>' +
                 '</div>' +
                 '</div>' +
 
                 '<div class=" col-1">' +
                 '<div class="btn">' +
-                '<button  type="button" onclick="setStorageModif(\'###restikoId###\')" class="btn btn-outline-light"> Modifier </button>' +
+                '<button  type="button" onclick="modif(\'###restikoId###\')" class="btn btn-outline-light"> Modifier </button>' +
                 '</div>' +
                 '</div>' +
 
                 '<div class=" col-1">' +
                 '<div class="btn">' +
-                '<button value="reset" type="reset" onclick="setStorageDelete(\'###restikoId###\')" class="btn btn-outline-light"> Supprimer </button>' +
+                '<button value="reset" type="reset" onclick="deleteRestiko(\'###restikoId###\')" class="btn btn-outline-light"> Supprimer </button>' +
                 '</div>' +
                 '</div>' +
                 '</div>' +
@@ -61,18 +61,14 @@ initAirtable()
 
 
 //fonction pour récupérer toutes les données de chaque restiko et le mettre dans la page détail 
-function setStorage(index) {
-    console.log("index", index);
-    localStorage.setItem("id", index);
+function detail(restikoId) {
+    console.log("restikoId", restikoId);
+    localStorage.setItem("id", restikoId);
     window.location = "detail.html";
 }
 //fonction pour récupérer toutes les données de chaque restiko et le mettre dans la page modified
-function setStorageModif(index) {
-    console.log("index", index);
-    localStorage.setItem("id", index);
+function modif(restikoId) {
+    console.log("restikoId", restikoId);
+    localStorage.setItem("id", restikoId);
     window.location = "modified.html";
-}
-//fonction pour récupérer toutes les données de chaque restiko et le mettre dans la page modified
-function setStorageDelete(index) {
-    localStorage.setItem("id", index);
 }

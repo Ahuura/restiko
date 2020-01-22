@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
     setTimeout(function() {
         var monStockage = localStorage.getItem("id")
         afficherRestiko(monStockage)
